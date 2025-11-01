@@ -1,1 +1,0 @@
-{"uuid":"fed83146-f594-417d-8aa0-78855337b0d1","name":"org.example.tests.books.CreateBookTest","children":["750a3f91-b4cb-4a7f-aacf-bb4dc9fe602d"],"befores":[{"name":"setup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1761914585085,"stop":1761914585419}],"afters":[],"start":1761914585070,"stop":1761914663937}
