@@ -62,7 +62,7 @@ api-bookstore-framework/
 └── README.md
 ```
 
-## How to Run
+## How to Run Locally
 
 ### 1. Clone the project
 ```
@@ -81,6 +81,50 @@ mvn test
 ```
 allure serve target/allure-results
 ```
+## GitHub Actions Workflow: Java CI with Allure Reports
+
+**Workflow Name:** `Java CI with Allure Reports`
+
+**Triggers:**
+- Push to `main` branch
+- Pull request to `main` branch
+
+**Jobs and Steps:**
+
+- **Job:** `build-and-test` (runs on `ubuntu-latest`)
+
+**Steps:**
+1. **Checkout code**  
+   `uses: actions/checkout@v3`  
+   `persist-credentials: false`
+
+2. **Set up JDK 17**  
+   `uses: actions/setup-java@v3`  
+   `distribution: temurin`  
+   `java-version: 17`
+
+3. **Cache Maven packages**  
+   `uses: actions/cache@v3`  
+   Path: `~/.m2/repository`  
+   Key: `${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}`
+
+4. **Build and run tests**  
+   `run: mvn clean test -Dmaven.test.failure.ignore=true`
+
+5. **Generate Allure report**  
+   `run: mvn io.qameta.allure:allure-maven:report`
+
+6. **Deploy Allure report to GitHub Pages**  
+   `uses: peaceiris/actions-gh-pages@v3`  
+   `github_token: ${{ secrets.GH_PAT }}`  
+   `publish_dir: ./target/site/allure-maven-plugin`  
+   `user_name: github-actions`  
+   `user_email: github-actions@github.com`
+
+### View Allure Report Online
+
+**Latest report:** https://veronikabarkovska.github.io/api-bookstore-framework
+
 
 ### Core Classes
 | Class                             | Description                                       |
