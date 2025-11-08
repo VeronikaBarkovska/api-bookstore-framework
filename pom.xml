@@ -80,7 +80,6 @@
         </dependency>
 
         <!-- TestNG -->
-      
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -88,7 +87,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Зависимость Allure TestNG -->
+        <!-- Allure TestNG -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
@@ -146,9 +145,6 @@
                             <value>${project.build.directory}/allure-results</value>
                         </property>
                     </systemProperties>
-               <!-- <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
-                    </suiteXmlFiles> -->
                 </configuration>
                 <dependencies>
                     <dependency>
