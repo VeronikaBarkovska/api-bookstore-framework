@@ -80,11 +80,11 @@
         </dependency>
 
         <!-- TestNG -->
-        <!-- Зависимость TestNG (предполагается, что уже есть) -->
+      
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.8.0</version> <!-- Используйте совместимую версию -->
+            <version>7.8.0</version> 
             <scope>test</scope>
         </dependency>
 
@@ -135,7 +135,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version> <!-- Используйте актуальную версию -->
+                <version>3.0.0-M5</version>
                 <configuration>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.7/aspectjweaver-1.9.7.jar"
@@ -146,8 +146,7 @@
                             <value>${project.build.directory}/allure-results</value>
                         </property>
                     </systemProperties>
-                    <!-- При необходимости можно указать test suite файл -->
-                    <!-- <suiteXmlFiles>
+               <!-- <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles> -->
                 </configuration>
